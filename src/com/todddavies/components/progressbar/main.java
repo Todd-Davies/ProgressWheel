@@ -8,18 +8,19 @@ import android.widget.Button;
 
 public class main extends Activity {
 	boolean running;
+	ProgressWheel pw;
+	int progress = 0;
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.progress_wheel_activity);
-        final ProgressWheel pw = (ProgressWheel) findViewById(R.id.progressBarTwo);
+        pw = (ProgressWheel) findViewById(R.id.progressBarTwo);
         //pw.spin();
         
         final Runnable r = new Runnable() {
 			public void run() {
 				running = true;
-				int progress = 0;
 				while(progress<361) {
 					pw.incrementProgress();
 					progress++;
@@ -52,11 +53,21 @@ public class main extends Activity {
         increment.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				if(!running) {
+					progress = 0;
 					pw.resetCount();
 					Thread s = new Thread(r);
 					s.start();
 				}
 			}
         });
+	}
+	
+	@Override
+	public void onPause() {
+		super.onPause();
+		progress = 361;
+		pw.stopSpinning();
+		pw.resetCount();
+		pw.setText("Click\none of the\nbuttons");
 	}
 }
