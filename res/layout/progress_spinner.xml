@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/RelativeLayout01"
+	android:layout_width="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"
+	android:gravity="center" android:layout_height="wrap_content"
+	android:paddingLeft="30sp" android:paddingRight="30sp">
+	
+	<ImageView android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:src="@drawable/icon"
+		android:id="@+id/progressImage" android:tag="1" />
+	
+	<TextView android:id="@+id/tv_progressText" android:layout_height="wrap_content"
+		android:layout_toRightOf="@id/progressImage" android:layout_width="wrap_content"
+		android:layout_alignTop="@id/progressImage" android:layout_alignBottom="@id/progressImage"
+		android:gravity="bottom" android:text="Please Wait..." />
+	
+</RelativeLayout>

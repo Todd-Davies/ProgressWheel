@@ -1,0 +1,62 @@
+package com.todddavies.components.progressbar;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+
+public class main extends Activity {
+	boolean running;
+	
+	@Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.progress_wheel_activity);
+        final ProgressWheel pw = (ProgressWheel) findViewById(R.id.progressBarTwo);
+        //pw.spin();
+        
+        final Runnable r = new Runnable() {
+			public void run() {
+				running = true;
+				int progress = 0;
+				while(progress<361) {
+					pw.incrementProgress();
+					progress++;
+					try {
+						Thread.sleep(15);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				running = false;
+			}
+        };
+        
+        Button spin = (Button) findViewById(R.id.btn_spin);
+        spin.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				if(!running) {
+					if(pw.isSpinning) {
+						pw.stopSpinning();
+					}
+					pw.resetCount();
+					pw.setText("Loading...");
+					pw.spin();
+				}
+			}
+        });
+        
+        Button increment = (Button) findViewById(R.id.btn_increment);
+        increment.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				if(!running) {
+					pw.resetCount();
+					Thread s = new Thread(r);
+					s.start();
+				}
+			}
+        });
+	}
+}
