@@ -6,6 +6,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+/**
+ * A sample activity showing some of the functions of the progress bar 
+ */
 public class main extends Activity {
 	boolean running;
 	ProgressWheel pw;
@@ -16,7 +19,6 @@ public class main extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.progress_wheel_activity);
         pw = (ProgressWheel) findViewById(R.id.progressBarTwo);
-        //pw.spin();
         
         final Runnable r = new Runnable() {
 			public void run() {

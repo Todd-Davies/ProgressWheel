@@ -95,30 +95,15 @@ containing a value of this type.
         public static final int textSize=0x7f010002;
     }
     public static final class drawable {
-        public static final int header=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
-        public static final int icon=0x7f020002;
-        public static final int login_gradient=0x7f020003;
-        public static final int login_gradient_flip=0x7f020004;
-        public static final int logo=0x7f020005;
+        public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int RelativeLayout01=0x7f050005;
-        public static final int btn_increment=0x7f050009;
-        public static final int btn_spin=0x7f050008;
-        public static final int iv_login_header_image=0x7f050001;
-        public static final int progressBar=0x7f050004;
-        public static final int progressBarTwo=0x7f05000a;
-        public static final int progressImage=0x7f050006;
-        public static final int rl_login_header=0x7f050000;
-        public static final int tv_progressText=0x7f050007;
-        public static final int v_login_gradient=0x7f050002;
-        public static final int vf_login_flipper=0x7f050003;
+        public static final int btn_increment=0x7f050001;
+        public static final int btn_spin=0x7f050000;
+        public static final int progressBarTwo=0x7f050002;
     }
     public static final class layout {
-        public static final int main=0x7f030000;
-        public static final int progress_spinner=0x7f030001;
-        public static final int progress_wheel_activity=0x7f030002;
+        public static final int progress_wheel_activity=0x7f030000;
     }
     public static final class string {
         public static final int app_name=0x7f040001;

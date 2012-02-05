@@ -11,6 +11,14 @@ import android.os.Message;
 import android.util.AttributeSet;
 import android.view.View;
 
+/**
+ * An indicator of progress, similar to Android's ProgressBar.
+ * Can be used in 'spin mode' or 'increment mode'
+ * @author Todd Davies
+ *
+ * Licensed under the Creative Commons Attribution 3.0 license see http://creativecommons.org/licenses/by/3.0/
+ *
+ */
 public class ProgressWheel extends View {
 	
 	//Sizes (with defaults)
@@ -31,7 +39,7 @@ public class ProgressWheel extends View {
 	private int circleColor = 0x00000000;
 	private int rimColor = 0xAADDDDDD;
 	private int textColor = 0xFF000000;
-	
+
 	//Paints
 	private Paint barPaint = new Paint();
 	private Paint circlePaint = new Paint();
@@ -45,11 +53,15 @@ public class ProgressWheel extends View {
 	
 	//Animation
 	private Handler spinHandler = new Handler() {
+		/**
+		 * This is the code that will increment the progress variable
+		 * and so spin the wheel
+		 */
 		@Override
 		public void handleMessage(Message msg) {
 			invalidate();
 			if(isSpinning) {
-				progress+=2;
+				progress+=1;
 				if(progress>360) {
 					progress = 0;
 				}
@@ -77,24 +89,13 @@ public class ProgressWheel extends View {
 				R.styleable.ProgressWheel));
 	}
 	
-	/**
-	 * Puts the view on spin mode
-	 */
-	public void spin() {
-		isSpinning = true;
-		spinHandler.sendEmptyMessage(0);
-	}
+	//----------------------------------
+	//Setting up stuff
+	//----------------------------------
 	
 	/**
-	 * Increment the progress by 1 (of 360)
+	 * Now we know the dimensions of the view, setup the bounds and paints
 	 */
-	public void incrementProgress() {
-		isSpinning = false;
-		progress++;
-		setText(Math.round(((float)progress/360)*100) + "%");
-		spinHandler.sendEmptyMessage(0);
-	}
-	
 	@Override
 	public void onAttachedToWindow() {
 		super.onAttachedToWindow();
@@ -104,15 +105,9 @@ public class ProgressWheel extends View {
 	}
 	
 	/**
-	 * Set the text in the progress bar
-	 * @param text
+	 * Set the properties of the paints we're using to 
+	 * draw the progress wheel
 	 */
-	public void setText(String text) {
-		this.text = text;
-		splitText = this.text.split("\n");
-	}
-	
-	
 	private void setupPaints() {
 		barPaint.setColor(barColor);
         barPaint.setAntiAlias(true);
@@ -134,6 +129,9 @@ public class ProgressWheel extends View {
         textPaint.setTextSize(textSize);
 	}
 
+	/**
+	 * Set the bounds of the component
+	 */
 	private void setupBounds() {
 		paddingTop = this.getPaddingTop();
 	    paddingBottom = this.getPaddingBottom();
@@ -156,7 +154,7 @@ public class ProgressWheel extends View {
 
 	/**
 	 * Parse the attributes passed to the view from the XML
-	 * @param a
+	 * @param a the attributes to parse
 	 */
 	private void parseAttributes(TypedArray a) {
 		barWidth = (int) a.getDimension(R.styleable.ProgressWheel_barWidth, barWidth);
@@ -176,7 +174,10 @@ public class ProgressWheel extends View {
 	    circleColor = (int) a.getColor(R.styleable.ProgressWheel_circleColor, circleColor);
 	}
 
-
+	//----------------------------------
+	//Animation stuff
+	//----------------------------------
+	
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
 		//Draw the rim
@@ -192,7 +193,7 @@ public class ProgressWheel extends View {
 				circleBounds.height()/2 + barWidth, 
 				circleRadius, 
 				circlePaint);
-		//Draw the text
+		//Draw the text (attempts to center it horizontally and vertically)
 		int offsetNum = 0;
 		for(String s : splitText) {
 			float offset = textPaint.measureText(s) / 2;
@@ -218,5 +219,134 @@ public class ProgressWheel extends View {
 		isSpinning = false;
 		progress = 0;
 		spinHandler.removeMessages(0);
+	}
+	
+	
+	/**
+	 * Puts the view on spin mode
+	 */
+	public void spin() {
+		isSpinning = true;
+		spinHandler.sendEmptyMessage(0);
+	}
+	
+	/**
+	 * Increment the progress by 1 (of 360)
+	 */
+	public void incrementProgress() {
+		isSpinning = false;
+		progress++;
+		setText(Math.round(((float)progress/360)*100) + "%");
+		spinHandler.sendEmptyMessage(0);
+	}
+	
+	//----------------------------------
+	//Getters + setters
+	//----------------------------------
+	
+	/**
+	 * Set the text in the progress bar
+	 * Doesn't invalidate the view
+	 * @param text the text to show ('\n' constitutes a new line)
+	 */
+	public void setText(String text) {
+		this.text = text;
+		splitText = this.text.split("\n");
+	}
+	
+	public int getCircleRadius() {
+		return circleRadius;
+	}
+
+	public void setCircleRadius(int circleRadius) {
+		this.circleRadius = circleRadius;
+	}
+
+	public int getBarLength() {
+		return barLength;
+	}
+
+	public void setBarLength(int barLength) {
+		this.barLength = barLength;
+	}
+
+	public int getBarWidth() {
+		return barWidth;
+	}
+
+	public void setBarWidth(int barWidth) {
+		this.barWidth = barWidth;
+	}
+
+	public int getTextSize() {
+		return textSize;
+	}
+
+	public void setTextSize(int textSize) {
+		this.textSize = textSize;
+	}
+
+	public int getPaddingTop() {
+		return paddingTop;
+	}
+
+	public void setPaddingTop(int paddingTop) {
+		this.paddingTop = paddingTop;
+	}
+
+	public int getPaddingBottom() {
+		return paddingBottom;
+	}
+
+	public void setPaddingBottom(int paddingBottom) {
+		this.paddingBottom = paddingBottom;
+	}
+
+	public int getPaddingLeft() {
+		return paddingLeft;
+	}
+
+	public void setPaddingLeft(int paddingLeft) {
+		this.paddingLeft = paddingLeft;
+	}
+
+	public int getPaddingRight() {
+		return paddingRight;
+	}
+
+	public void setPaddingRight(int paddingRight) {
+		this.paddingRight = paddingRight;
+	}
+
+	public int getBarColor() {
+		return barColor;
+	}
+
+	public void setBarColor(int barColor) {
+		this.barColor = barColor;
+	}
+
+	public int getCircleColor() {
+		return circleColor;
+	}
+
+	public void setCircleColor(int circleColor) {
+		this.circleColor = circleColor;
+	}
+
+	public int getRimColor() {
+		return rimColor;
+	}
+
+	public void setRimColor(int rimColor) {
+		this.rimColor = rimColor;
+	}
+
+	public int getTextColor() {
+		return textColor;
+	}
+
+	public void setTextColor(int textColor) {
+		this.textColor = textColor;
 	}
 }
