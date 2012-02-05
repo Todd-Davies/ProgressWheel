@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical"
+	android:clipChildren="true"
+	android:background="@drawable/login_gradient_flip" >
+
+	<RelativeLayout android:id="@+id/rl_login_header"
+		android:layout_width="fill_parent"
+		android:layout_height="160dp"
+		android:background="@drawable/header"	
+		android:layout_alignParentTop="true" >
+	
+		<ImageView android:id="@+id/iv_login_header_image"
+			android:layout_width="250dp"
+			android:layout_height="77dp"
+			android:scaleType="centerInside"
+			android:src="@drawable/logo"
+			android:layout_marginLeft="10dp"
+			android:layout_marginRight="10dp"
+			android:layout_centerInParent="true" />
+	
+	</RelativeLayout>
+	
+	<View android:layout_width="fill_parent"
+		android:layout_height="67dp"
+		android:id="@+id/v_login_gradient"
+		android:background="@drawable/login_gradient"
+		android:layout_below="@id/rl_login_header" />
+	
+	<ViewFlipper android:id="@+id/vf_login_flipper"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_marginTop="-67dp"
+		android:layout_below="@id/v_login_gradient"
+		android:background="@null" >
+	
+		<RelativeLayout android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:background="@null" >
+			
+		    <LinearLayout android:layout_width="wrap_content" 
+				android:layout_height="wrap_content"
+				android:layout_centerInParent="true"
+				android:layout_marginTop="35dp" >
+		    
+				<com.visualdenim.schooltraq.progressbar.NewProgressSpinner
+					android:id="@+id/progressBar"
+					android:layout_width="250dp" 
+					android:layout_height="250dp" />
+			
+			</LinearLayout>
+			
+		</RelativeLayout>	
+	
+	</ViewFlipper>
+			   
+</RelativeLayout>
