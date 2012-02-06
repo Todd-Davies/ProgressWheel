@@ -8,7 +8,7 @@ This is a custom component for Android intended for use instead of a progress ba
 A complete walkthrough of how to use this component in your app
 -------------
 
-**XML**
+**XML:**   
 To implement the view in your xml layout do the following:
 
 1. Add the following to your attrs.xml file (in res/values):
@@ -44,7 +44,7 @@ To implement the view in your xml layout do the following:
     ProgressWheel:barWidth="5dp"   
     ProgressWheel:rimWidth="2dp" />`   
 	
-**Java**
+**Java:**   
 First you need to either get a ProgressWheel from a layout file, or initalise one. Do this by:
 
 -  `ProgressWheel pw = new ProgressWheel(myContext, myAttributes);`
