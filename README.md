@@ -3,7 +3,7 @@ Progress Wheel
 
 This is a custom component for Android intended for use instead of a progress bar.
 
-![Sample Image](sample_image.png "An example implementation")
+![Sample Image](ProgressWheel/sample_image.png "An example implementation")
 
 A complete walkthrough of how to use this component in your app
 -------------
