@@ -55,4 +55,3 @@ To spin the progress wheel, you just call .`spin()` and to stop it spinning, you
 Incrementing the progress wheel is slightly more tricky, you call `.incrementProgress()`. However, this is out of 360,  
 (because a circle has 360 degrees), and will automatically reset once you get past 360. A percentage display is   
 automatically displayed.
-
