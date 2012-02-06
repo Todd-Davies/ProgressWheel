@@ -27,7 +27,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int barLength=0x7f01000a;
+        public static final int barLength=0x7f01000b;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -37,7 +37,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int barWidth=0x7f010009;
+        public static final int barWidth=0x7f01000a;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -46,7 +46,15 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int circleColor=0x7f010007;
+        public static final int circleColor=0x7f010008;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int delayMillis=0x7f010007;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -56,7 +64,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int radius=0x7f010008;
+        public static final int radius=0x7f010009;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -76,7 +84,9 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int rimWidth=0x7f010005;
-        /** <p>Must be an integer value, such as "<code>100</code>".
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
@@ -126,6 +136,8 @@ containing a value of this type.
         public static final int btn_spin=0x7f050008;
         public static final int iv_login_header_image=0x7f050001;
         public static final int progressBar=0x7f050004;
+        public static final int progressBarFour=0x7f05000c;
+        public static final int progressBarThree=0x7f05000b;
         public static final int progressBarTwo=0x7f05000a;
         public static final int progressImage=0x7f050006;
         public static final int rl_login_header=0x7f050000;
@@ -153,6 +165,7 @@ containing a value of this type.
            <tr><td><code>{@link #ProgressWheel_barLength com.todddavies.components.progressbar:barLength}</code></td><td></td></tr>
            <tr><td><code>{@link #ProgressWheel_barWidth com.todddavies.components.progressbar:barWidth}</code></td><td></td></tr>
            <tr><td><code>{@link #ProgressWheel_circleColor com.todddavies.components.progressbar:circleColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #ProgressWheel_delayMillis com.todddavies.components.progressbar:delayMillis}</code></td><td></td></tr>
            <tr><td><code>{@link #ProgressWheel_radius com.todddavies.components.progressbar:radius}</code></td><td></td></tr>
            <tr><td><code>{@link #ProgressWheel_rimColor com.todddavies.components.progressbar:rimColor}</code></td><td></td></tr>
            <tr><td><code>{@link #ProgressWheel_rimWidth com.todddavies.components.progressbar:rimWidth}</code></td><td></td></tr>
@@ -165,6 +178,7 @@ containing a value of this type.
            @see #ProgressWheel_barLength
            @see #ProgressWheel_barWidth
            @see #ProgressWheel_circleColor
+           @see #ProgressWheel_delayMillis
            @see #ProgressWheel_radius
            @see #ProgressWheel_rimColor
            @see #ProgressWheel_rimWidth
@@ -176,7 +190,7 @@ containing a value of this type.
         public static final int[] ProgressWheel = {
             0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003,
             0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007,
-            0x7f010008, 0x7f010009, 0x7f01000a
+            0x7f010008, 0x7f010009, 0x7f01000a, 0x7f01000b
         };
         /**
           <p>This symbol is the offset where the {@link com.todddavies.components.progressbar.R.attr#barColor}
@@ -208,7 +222,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name android:barLength
         */
-        public static final int ProgressWheel_barLength = 10;
+        public static final int ProgressWheel_barLength = 11;
         /**
           <p>This symbol is the offset where the {@link com.todddavies.components.progressbar.R.attr#barWidth}
           attribute's value can be found in the {@link #ProgressWheel} array.
@@ -224,7 +238,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name android:barWidth
         */
-        public static final int ProgressWheel_barWidth = 9;
+        public static final int ProgressWheel_barWidth = 10;
         /**
           <p>This symbol is the offset where the {@link com.todddavies.components.progressbar.R.attr#circleColor}
           attribute's value can be found in the {@link #ProgressWheel} array.
@@ -239,7 +253,21 @@ theme attribute (in the form
 containing a value of this type.
           @attr name android:circleColor
         */
-        public static final int ProgressWheel_circleColor = 7;
+        public static final int ProgressWheel_circleColor = 8;
+        /**
+          <p>This symbol is the offset where the {@link com.todddavies.components.progressbar.R.attr#delayMillis}
+          attribute's value can be found in the {@link #ProgressWheel} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:delayMillis
+        */
+        public static final int ProgressWheel_delayMillis = 7;
         /**
           <p>This symbol is the offset where the {@link com.todddavies.components.progressbar.R.attr#radius}
           attribute's value can be found in the {@link #ProgressWheel} array.
@@ -255,7 +283,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name android:radius
         */
-        public static final int ProgressWheel_radius = 8;
+        public static final int ProgressWheel_radius = 9;
         /**
           <p>This symbol is the offset where the {@link com.todddavies.components.progressbar.R.attr#rimColor}
           attribute's value can be found in the {@link #ProgressWheel} array.
@@ -292,7 +320,9 @@ containing a value of this type.
           attribute's value can be found in the {@link #ProgressWheel} array.
 
 
-          <p>Must be an integer value, such as "<code>100</code>".
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form

@@ -22,24 +22,65 @@
     <LinearLayout android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_centerInParent="true"
-    android:orientation="horizontal">
+    android:orientation="vertical">
     
-        <ProgressBar android:layout_width="150dp"
-    android:layout_height="150dp"/>
+        <LinearLayout android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal">
     
-    <com.todddavies.components.progressbar.ProgressWheel
-        android:id="@+id/progressBarTwo"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        ProgressWheel:text="Click\none of the\nbuttons"
-        ProgressWheel:textColor="#222222"
-        ProgressWheel:textSize="14sp"
-        ProgressWheel:rimColor="#44000000"
-        ProgressWheel:barLength="60dp" 
-        ProgressWheel:barColor="#339BB9"
-        ProgressWheel:barWidth="20dp"
-        ProgressWheel:rimWidth="20dp" 
-        ProgressWheel:spinSpeed="3" />
+		    <ProgressBar android:layout_width="150dp"
+		    android:layout_height="150dp"/>
+		    
+		    <com.todddavies.components.progressbar.ProgressWheel
+		        android:id="@+id/progressBarTwo"
+		        android:layout_width="150dp"
+		        android:layout_height="150dp"
+		        ProgressWheel:text="Click\none of the\nbuttons"
+		        ProgressWheel:textColor="#222222"
+		        ProgressWheel:textSize="14sp"
+		        ProgressWheel:rimColor="#44000000"
+		        ProgressWheel:barLength="60dp" 
+		        ProgressWheel:barColor="#339BB9"
+		        ProgressWheel:barWidth="25dp"
+		        ProgressWheel:rimWidth="25dp" 
+		        ProgressWheel:spinSpeed="3dp" />
+	    </LinearLayout>
+    
+        <LinearLayout android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal">
+		    
+		    <com.todddavies.components.progressbar.ProgressWheel
+		        android:id="@+id/progressBarThree"
+		        android:layout_width="150dp"
+		        android:layout_height="150dp"
+		        ProgressWheel:text=""
+		        ProgressWheel:textColor="#222222"
+		        ProgressWheel:textSize="14sp"
+		        ProgressWheel:rimColor="#44000000"
+		        ProgressWheel:circleColor="#2E9121"
+		        ProgressWheel:barLength="20dp" 
+		        ProgressWheel:barColor="#8000"
+		        ProgressWheel:barWidth="25dp"
+		        ProgressWheel:rimWidth="25dp" 
+		        ProgressWheel:spinSpeed="-1dp" />
+		    
+		    <com.todddavies.components.progressbar.ProgressWheel
+		        android:id="@+id/progressBarFour"
+		        android:layout_width="50dp"
+		        android:layout_height="50dp"
+		        ProgressWheel:text=""
+		        ProgressWheel:textColor="#222222"
+		        ProgressWheel:textSize="14sp"
+		        ProgressWheel:rimColor="#4000"
+		        ProgressWheel:barLength="30dp" 
+		        ProgressWheel:barColor="#222"
+		        ProgressWheel:barWidth="4dp"
+		        ProgressWheel:rimWidth="1dp" 
+		        ProgressWheel:spinSpeed="30dp"
+		        ProgressWheel:delayMillis="75" />
+		    
+	    </LinearLayout>
     
     </LinearLayout>
     

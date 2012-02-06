@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.graphics.RectF;
+import android.graphics.Shader;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
@@ -53,7 +54,10 @@ public class ProgressWheel extends View {
 	private RectF circleBounds = new RectF();
 	
 	//Animation
+	//The amount of pixels to move the bar by on each draw
 	private int spinSpeed = 2;
+	//The number of milliseconds to wait inbetween each draw
+	private int delayMillis = 0;
 	private Handler spinHandler = new Handler() {
 		/**
 		 * This is the code that will increment the progress variable
@@ -67,7 +71,7 @@ public class ProgressWheel extends View {
 				if(progress>360) {
 					progress = 0;
 				}
-				spinHandler.sendEmptyMessage(0);
+				spinHandler.sendEmptyMessageDelayed(0, delayMillis);
 			}
 			//super.handleMessage(msg);
 		}
@@ -163,7 +167,12 @@ public class ProgressWheel extends View {
 		
 		rimWidth = (int) a.getDimension(R.styleable.ProgressWheel_rimWidth, rimWidth);
 		
-		spinSpeed = (int) a.getInt(R.styleable.ProgressWheel_spinSpeed, spinSpeed);
+		spinSpeed = (int) a.getDimension(R.styleable.ProgressWheel_spinSpeed, spinSpeed);
+		
+		delayMillis = (int) a.getInteger(R.styleable.ProgressWheel_delayMillis, delayMillis);
+		if(delayMillis<0) {
+			delayMillis = 0;
+		}
 	    
 	    barColor = a.getColor(R.styleable.ProgressWheel_barColor, barColor);
 	    
@@ -195,8 +204,8 @@ public class ProgressWheel extends View {
 			canvas.drawArc(circleBounds, -90, progress, false, barPaint);
 		}
 		//Draw the inner circle
-		canvas.drawCircle(circleBounds.width()/2 + barWidth, 
-				circleBounds.height()/2 + barWidth, 
+		canvas.drawCircle((circleBounds.width()/2) + rimWidth + paddingLeft, 
+				(circleBounds.height()/2) + rimWidth + paddingTop, 
 				circleRadius, 
 				circlePaint);
 		//Draw the text (attempts to center it horizontally and vertically)
@@ -347,6 +356,15 @@ public class ProgressWheel extends View {
 	public void setRimColor(int rimColor) {
 		this.rimColor = rimColor;
 	}
+	
+	
+	public Shader getRimShader() {
+		return rimPaint.getShader();
+	}
+
+	public void setRimShader(Shader shader) {
+		this.rimPaint.setShader(shader);
+	}
 
 	public int getTextColor() {
 		return textColor;
@@ -370,5 +388,13 @@ public class ProgressWheel extends View {
 
 	public void setRimWidth(int rimWidth) {
 		this.rimWidth = rimWidth;
+	}
+	
+	public int getDelayMillis() {
+		return delayMillis;
+	}
+
+	public void setDelayMillis(int delayMillis) {
+		this.delayMillis = delayMillis;
 	}
 }

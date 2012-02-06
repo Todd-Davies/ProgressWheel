@@ -4,6 +4,9 @@ Progress Wheel
 This is a custom component for Android intended for use instead of a progress bar.
 
 ![Sample Image](https://github.com/Todd-Davies/ProgressWheel/raw/master/sample_image.png "An example implementation")
+![Sample Image 2](https://github.com/Todd-Davies/ProgressWheel/raw/master/sample_image_2.png "Another example implementation")
+![Sample Image 3](https://github.com/Todd-Davies/ProgressWheel/raw/master/sample_image_3.png "Another example implementation")
+![Sample Image 4](https://github.com/Todd-Davies/ProgressWheel/raw/master/sample_image_4.png "Another example implementation")
 
 A complete walkthrough of how to use this component in your app
 -------------
