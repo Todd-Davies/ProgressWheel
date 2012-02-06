@@ -25,7 +25,8 @@ To implement the view in your xml layout do the following:
 	<attr name="radius" format="dimension" />   
 	<attr name="barWidth" format="dimension" />   
 	<attr name="barLength" format="dimension" />   
-</declare-styleable> ```
+</declare-styleable> 
+```
 
 2. Add the following code to the root view of your layout:
 `xmlns:ProgressWheel="http://schemas.android.com/apk/res/com.visualdenim.schooltraq"`
@@ -44,7 +45,8 @@ To implement the view in your xml layout do the following:
     ProgressWheel:barLength="60dp"    
     ProgressWheel:barColor="#0097D6"   
     ProgressWheel:barWidth="5dp"   
-    ProgressWheel:rimWidth="2dp" /> ```
+    ProgressWheel:rimWidth="2dp" /> 
+```
 	
 **Java:**   
 First you need to either get a ProgressWheel from a layout file, or initalise one. Do this by:
