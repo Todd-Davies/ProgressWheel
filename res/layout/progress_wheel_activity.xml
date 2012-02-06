@@ -37,7 +37,9 @@
         ProgressWheel:rimColor="#44000000"
         ProgressWheel:barLength="60dp" 
         ProgressWheel:barColor="#339BB9"
-        ProgressWheel:barWidth="20dp"/>
+        ProgressWheel:barWidth="20dp"
+        ProgressWheel:rimWidth="20dp" 
+        ProgressWheel:spinSpeed="3" />
     
     </LinearLayout>
     

@@ -27,7 +27,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int barLength=0x7f010008;
+        public static final int barLength=0x7f01000a;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -37,7 +37,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int barWidth=0x7f010007;
+        public static final int barWidth=0x7f010009;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -46,7 +46,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int circleColor=0x7f010005;
+        public static final int circleColor=0x7f010007;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -56,7 +56,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int radius=0x7f010006;
+        public static final int radius=0x7f010008;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -66,6 +66,24 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int rimColor=0x7f010004;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int rimWidth=0x7f010005;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int spinSpeed=0x7f010006;
         /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -137,6 +155,8 @@ containing a value of this type.
            <tr><td><code>{@link #ProgressWheel_circleColor com.todddavies.components.progressbar:circleColor}</code></td><td></td></tr>
            <tr><td><code>{@link #ProgressWheel_radius com.todddavies.components.progressbar:radius}</code></td><td></td></tr>
            <tr><td><code>{@link #ProgressWheel_rimColor com.todddavies.components.progressbar:rimColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #ProgressWheel_rimWidth com.todddavies.components.progressbar:rimWidth}</code></td><td></td></tr>
+           <tr><td><code>{@link #ProgressWheel_spinSpeed com.todddavies.components.progressbar:spinSpeed}</code></td><td></td></tr>
            <tr><td><code>{@link #ProgressWheel_text com.todddavies.components.progressbar:text}</code></td><td></td></tr>
            <tr><td><code>{@link #ProgressWheel_textColor com.todddavies.components.progressbar:textColor}</code></td><td></td></tr>
            <tr><td><code>{@link #ProgressWheel_textSize com.todddavies.components.progressbar:textSize}</code></td><td></td></tr>
@@ -147,6 +167,8 @@ containing a value of this type.
            @see #ProgressWheel_circleColor
            @see #ProgressWheel_radius
            @see #ProgressWheel_rimColor
+           @see #ProgressWheel_rimWidth
+           @see #ProgressWheel_spinSpeed
            @see #ProgressWheel_text
            @see #ProgressWheel_textColor
            @see #ProgressWheel_textSize
@@ -154,7 +176,7 @@ containing a value of this type.
         public static final int[] ProgressWheel = {
             0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003,
             0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007,
-            0x7f010008
+            0x7f010008, 0x7f010009, 0x7f01000a
         };
         /**
           <p>This symbol is the offset where the {@link com.todddavies.components.progressbar.R.attr#barColor}
@@ -186,7 +208,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name android:barLength
         */
-        public static final int ProgressWheel_barLength = 8;
+        public static final int ProgressWheel_barLength = 10;
         /**
           <p>This symbol is the offset where the {@link com.todddavies.components.progressbar.R.attr#barWidth}
           attribute's value can be found in the {@link #ProgressWheel} array.
@@ -202,7 +224,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name android:barWidth
         */
-        public static final int ProgressWheel_barWidth = 7;
+        public static final int ProgressWheel_barWidth = 9;
         /**
           <p>This symbol is the offset where the {@link com.todddavies.components.progressbar.R.attr#circleColor}
           attribute's value can be found in the {@link #ProgressWheel} array.
@@ -217,7 +239,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name android:circleColor
         */
-        public static final int ProgressWheel_circleColor = 5;
+        public static final int ProgressWheel_circleColor = 7;
         /**
           <p>This symbol is the offset where the {@link com.todddavies.components.progressbar.R.attr#radius}
           attribute's value can be found in the {@link #ProgressWheel} array.
@@ -233,7 +255,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name android:radius
         */
-        public static final int ProgressWheel_radius = 6;
+        public static final int ProgressWheel_radius = 8;
         /**
           <p>This symbol is the offset where the {@link com.todddavies.components.progressbar.R.attr#rimColor}
           attribute's value can be found in the {@link #ProgressWheel} array.
@@ -249,6 +271,36 @@ containing a value of this type.
           @attr name android:rimColor
         */
         public static final int ProgressWheel_rimColor = 4;
+        /**
+          <p>This symbol is the offset where the {@link com.todddavies.components.progressbar.R.attr#rimWidth}
+          attribute's value can be found in the {@link #ProgressWheel} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:rimWidth
+        */
+        public static final int ProgressWheel_rimWidth = 5;
+        /**
+          <p>This symbol is the offset where the {@link com.todddavies.components.progressbar.R.attr#spinSpeed}
+          attribute's value can be found in the {@link #ProgressWheel} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:spinSpeed
+        */
+        public static final int ProgressWheel_spinSpeed = 6;
         /**
           <p>This symbol is the offset where the {@link com.todddavies.components.progressbar.R.attr#text}
           attribute's value can be found in the {@link #ProgressWheel} array.

@@ -6,6 +6,8 @@
         <attr name="textSize" format="dimension" />
         <attr name="barColor" format="color" />
         <attr name="rimColor" format="color" />
+        <attr name="rimWidth" format="dimension" />
+        <attr name="spinSpeed" format="integer" />
         <attr name="circleColor" format="color" />
         <attr name="radius" format="dimension" />
         <attr name="barWidth" format="dimension" />

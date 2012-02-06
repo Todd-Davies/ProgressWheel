@@ -4,8 +4,8 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.RectF;
 import android.graphics.Paint.Style;
+import android.graphics.RectF;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
@@ -26,6 +26,7 @@ public class ProgressWheel extends View {
 	private int circleRadius = 80;
 	private int barLength = 60;
 	private int barWidth = 20;
+	private int rimWidth = 20;
 	private int textSize = 20;
 	
 	//Padding (with defaults)
@@ -52,6 +53,7 @@ public class ProgressWheel extends View {
 	private RectF circleBounds = new RectF();
 	
 	//Animation
+	private int spinSpeed = 2;
 	private Handler spinHandler = new Handler() {
 		/**
 		 * This is the code that will increment the progress variable
@@ -61,13 +63,13 @@ public class ProgressWheel extends View {
 		public void handleMessage(Message msg) {
 			invalidate();
 			if(isSpinning) {
-				progress+=1;
+				progress+=spinSpeed;
 				if(progress>360) {
 					progress = 0;
 				}
 				spinHandler.sendEmptyMessage(0);
 			}
-			super.handleMessage(msg);
+			//super.handleMessage(msg);
 		}
 	};
 	int progress = 0;
@@ -117,7 +119,7 @@ public class ProgressWheel extends View {
         rimPaint.setColor(rimColor);
         rimPaint.setAntiAlias(true);
         rimPaint.setStyle(Style.STROKE);
-        rimPaint.setStrokeWidth(barWidth);
+        rimPaint.setStrokeWidth(rimWidth);
         
         circlePaint.setColor(circleColor);
         circlePaint.setAntiAlias(true);
@@ -158,6 +160,10 @@ public class ProgressWheel extends View {
 	 */
 	private void parseAttributes(TypedArray a) {
 		barWidth = (int) a.getDimension(R.styleable.ProgressWheel_barWidth, barWidth);
+		
+		rimWidth = (int) a.getDimension(R.styleable.ProgressWheel_rimWidth, rimWidth);
+		
+		spinSpeed = (int) a.getInt(R.styleable.ProgressWheel_spinSpeed, spinSpeed);
 	    
 	    barColor = a.getColor(R.styleable.ProgressWheel_barColor, barColor);
 	    
@@ -348,5 +354,21 @@ public class ProgressWheel extends View {
 
 	public void setTextColor(int textColor) {
 		this.textColor = textColor;
+	}
+	
+	public int getSpinSpeed() {
+		return spinSpeed;
+	}
+
+	public void setSpinSpeed(int spinSpeed) {
+		this.spinSpeed = spinSpeed;
+	}
+	
+	public int getRimWidth() {
+		return rimWidth;
+	}
+
+	public void setRimWidth(int rimWidth) {
+		this.rimWidth = rimWidth;
 	}
 }
