@@ -12,7 +12,7 @@ A complete walkthrough of how to use this component in your app
 To implement the view in your xml layout do the following:
 
 1. Add the following to your attrs.xml file (in res/values):
-`<declare-styleable name="ProgressWheel">   
+```<declare-styleable name="ProgressWheel">   
 	<attr name="text" format="string" />   
 	<attr name="textColor" format="color" />   
 	<attr name="textSize" format="dimension" />   
@@ -24,13 +24,13 @@ To implement the view in your xml layout do the following:
 	<attr name="radius" format="dimension" />   
 	<attr name="barWidth" format="dimension" />   
 	<attr name="barLength" format="dimension" />   
-</declare-styleable>`
+</declare-styleable>```
 
 2. Add the following code to the root view of your layout:
 `xmlns:ProgressWheel="http://schemas.android.com/apk/res/com.visualdenim.schooltraq"`
 
 3. Add the widget code in the appropriate place in your xml file. Here's a sample implementation:
-`<com.todddavies.components.progressbar.ProgressWheel   
+```<com.todddavies.components.progressbar.ProgressWheel   
     android:id="@+id/pw_spinner"     
     android:layout_width="200dp"    
     android:layout_height="200dp"   
@@ -42,7 +42,7 @@ To implement the view in your xml layout do the following:
     ProgressWheel:barLength="60dp"    
     ProgressWheel:barColor="#0097D6"   
     ProgressWheel:barWidth="5dp"   
-    ProgressWheel:rimWidth="2dp" />`   
+    ProgressWheel:rimWidth="2dp" />```
 	
 **Java:**   
 First you need to either get a ProgressWheel from a layout file, or initalise one. Do this by:
