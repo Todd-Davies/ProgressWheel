@@ -1,4 +1,4 @@
-Progress Wheel - Todd Davies 2012
+Progress Wheel
 =============
 
 This is a custom component for Android intended for use instead of a progress bar.
@@ -55,3 +55,5 @@ To spin the progress wheel, you just call .`spin()` and to stop it spinning, you
 Incrementing the progress wheel is slightly more tricky, you call `.incrementProgress()`. However, this is out of 360,  
 (because a circle has 360 degrees), and will automatically reset once you get past 360. A percentage display is   
 automatically displayed.
+
+Todd Davies - 2012
