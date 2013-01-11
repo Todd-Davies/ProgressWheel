@@ -17,8 +17,8 @@ import android.view.View;
  * Can be used in 'spin mode' or 'increment mode'
  * @author Todd Davies
  *
- * Licensed under the Creative Commons Attribution 3.0 license see http://creativecommons.org/licenses/by/3.0/
- *
+ * Licensed under the Creative Commons Attribution 3.0 license see:
+ * http://creativecommons.org/licenses/by/3.0/
  */
 public class ProgressWheel extends View {
 	
@@ -163,30 +163,39 @@ public class ProgressWheel extends View {
 	 * @param a the attributes to parse
 	 */
 	private void parseAttributes(TypedArray a) {
-		barWidth = (int) a.getDimension(R.styleable.ProgressWheel_barWidth, barWidth);
+		barWidth = (int) a.getDimension(R.styleable.ProgressWheel_barWidth,
+			barWidth);
 		
-		rimWidth = (int) a.getDimension(R.styleable.ProgressWheel_rimWidth, rimWidth);
+		rimWidth = (int) a.getDimension(R.styleable.ProgressWheel_rimWidth,
+			rimWidth);
 		
-		spinSpeed = (int) a.getDimension(R.styleable.ProgressWheel_spinSpeed, spinSpeed);
+		spinSpeed = (int) a.getDimension(R.styleable.ProgressWheel_spinSpeed,
+			spinSpeed);
 		
-		delayMillis = (int) a.getInteger(R.styleable.ProgressWheel_delayMillis, delayMillis);
+		delayMillis = (int) a.getInteger(R.styleable.ProgressWheel_delayMillis,
+			delayMillis);
 		if(delayMillis<0) {
 			delayMillis = 0;
 		}
 	    
 	    barColor = a.getColor(R.styleable.ProgressWheel_barColor, barColor);
 	    
-	    barLength = (int) a.getDimension(R.styleable.ProgressWheel_barLength, barLength);
+	    barLength = (int) a.getDimension(R.styleable.ProgressWheel_barLength,
+	    	barLength);
 	    
-	    textSize = (int) a.getDimension(R.styleable.ProgressWheel_textSize, textSize);
+	    textSize = (int) a.getDimension(R.styleable.ProgressWheel_textSize,
+	    	textSize);
 	    
-	    textColor = (int) a.getColor(R.styleable.ProgressWheel_textColor, textColor);
+	    textColor = (int) a.getColor(R.styleable.ProgressWheel_textColor,
+	    	textColor);
 	    
 	    setText(a.getString(R.styleable.ProgressWheel_text));
 	    
-	    rimColor = (int) a.getColor(R.styleable.ProgressWheel_rimColor, rimColor);
+	    rimColor = (int) a.getColor(R.styleable.ProgressWheel_rimColor,
+	    	rimColor);
 	    
-	    circleColor = (int) a.getColor(R.styleable.ProgressWheel_circleColor, circleColor);
+	    circleColor = (int) a.getColor(R.styleable.ProgressWheel_circleColor,
+	    	circleColor);
 	}
 
 	//----------------------------------
@@ -199,7 +208,8 @@ public class ProgressWheel extends View {
 		canvas.drawArc(circleBounds, 360, 360, false, rimPaint);
 		//Draw the bar
 		if(isSpinning) {
-			canvas.drawArc(circleBounds, progress - 90, barLength, false, barPaint);
+			canvas.drawArc(circleBounds, progress - 90, barLength, false,
+				barPaint);
 		} else {
 			canvas.drawArc(circleBounds, -90, progress, false, barPaint);
 		}
@@ -213,7 +223,8 @@ public class ProgressWheel extends View {
 		for(String s : splitText) {
 			float offset = textPaint.measureText(s) / 2;
 			canvas.drawText(s, this.getWidth() / 2 - offset, 
-				this.getHeight() / 2 + (textSize*(offsetNum)) - ((splitText.length-1)*(textSize/2)), textPaint);
+				this.getHeight() / 2 + (textSize*(offsetNum)) 
+				- ((splitText.length-1)*(textSize/2)), textPaint);
 			offsetNum++;
 		}
 	}
@@ -253,6 +264,15 @@ public class ProgressWheel extends View {
 		progress++;
 		setText(Math.round(((float)progress/360)*100) + "%");
 		spinHandler.sendEmptyMessage(0);
+	}
+
+	/**
+	 * Set the progress to a specific value
+	 */
+	public void setProgress(int i) {
+	    isSpinning = false;
+	    progress=i;
+	    spinHandler.sendEmptyMessage(0);
 	}
 	
 	//----------------------------------
