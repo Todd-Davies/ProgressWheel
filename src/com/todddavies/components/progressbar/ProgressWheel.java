@@ -189,7 +189,10 @@ public class ProgressWheel extends View {
 	    textColor = (int) a.getColor(R.styleable.ProgressWheel_textColor,
 	    	textColor);
 	    
-	    setText(a.getString(R.styleable.ProgressWheel_text));
+	    //if the text is empty , so ignore it
+	    if(a.hasValue(R.styleable.ProgressWheel_text)) {
+                setText(a.getString(R.styleable.ProgressWheel_text));
+            }
 	    
 	    rimColor = (int) a.getColor(R.styleable.ProgressWheel_rimColor,
 	    	rimColor);
