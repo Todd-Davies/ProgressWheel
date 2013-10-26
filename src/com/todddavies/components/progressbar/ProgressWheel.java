@@ -23,6 +23,8 @@ import android.view.View;
 public class ProgressWheel extends View {
 	
 	//Sizes (with defaults)
+	private int layout_height = 0;
+	private int layout_width = 0;
 	private int fullRadius = 100;
 	private int circleRadius = 80;
 	private int barLength = 60;
@@ -100,16 +102,23 @@ public class ProgressWheel extends View {
 	//----------------------------------
 	
 	/**
-	 * Now we know the dimensions of the view, setup the bounds and paints
+	 * Use onSizeChanged instead of onAttachedToWindow to get the dimensions of the view,
+	 * because this method is called after measuring the dimensions of MATCH_PARENT & WRAP_CONTENT.
+	 * Use this dimensions to setup the bounds and paints.
 	 */
 	@Override
-	public void onAttachedToWindow() {
-		super.onAttachedToWindow();
+    	protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        	super.onSizeChanged(w, h, oldw, oldh);
+        	
+        	// Share the dimensions
+	        layout_width = w;
+        	layout_height = h;
+                
 		setupBounds();
 		setupPaints();
 		invalidate();
-	}
-	
+    	}
+    
 	/**
 	 * Set the properties of the paints we're using to 
 	 * draw the progress wheel
@@ -139,23 +148,31 @@ public class ProgressWheel extends View {
 	 * Set the bounds of the component
 	 */
 	private void setupBounds() {
-		paddingTop = this.getPaddingTop();
-	    paddingBottom = this.getPaddingBottom();
-	    paddingLeft = this.getPaddingLeft();
-	    paddingRight = this.getPaddingRight();
+		// Width should equal to Height, find the min value to steup the circle
+		int minValue = Math.min(layout_width, layout_height);
+		
+		// Calc the Offset if needed
+		int xOffset = layout_width - minValue;
+		int yOffset = layout_height - minValue;
+		
+		// Add the offset
+		paddingTop = this.getPaddingTop() + (yOffset / 2);
+	    	paddingBottom = this.getPaddingBottom() + (yOffset / 2);
+	    	paddingLeft = this.getPaddingLeft() + (xOffset / 2);
+	    	paddingRight = this.getPaddingRight() + (xOffset / 2);
 		
 		rectBounds = new RectF(paddingLeft,
 				paddingTop,
-                this.getLayoutParams().width - paddingRight,
-                this.getLayoutParams().height - paddingBottom);
+                		this.getLayoutParams().width - paddingRight,
+                		this.getLayoutParams().height - paddingBottom);
 		
 		circleBounds = new RectF(paddingLeft + barWidth,
 				paddingTop + barWidth,
-                this.getLayoutParams().width - paddingRight - barWidth,
-                this.getLayoutParams().height - paddingBottom - barWidth);
+                		this.getLayoutParams().width - paddingRight - barWidth,
+                		this.getLayoutParams().height - paddingBottom - barWidth);
 		
 		fullRadius = (this.getLayoutParams().width - paddingRight - barWidth)/2;
-	    circleRadius = (fullRadius - barWidth) + 1;
+	    	circleRadius = (fullRadius - barWidth) + 1;
 	}
 
 	/**
@@ -199,6 +216,10 @@ public class ProgressWheel extends View {
 	    
 	    circleColor = (int) a.getColor(R.styleable.ProgressWheel_circleColor,
 	    	circleColor);
+	    	
+	    	
+		// Recycle
+		a.recycle();
 	}
 
 	//----------------------------------
