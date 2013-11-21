@@ -63,4 +63,17 @@ Incrementing the progress wheel is slightly more tricky, you call `.incrementPro
 (because a circle has 360 degrees), and will automatically reset once you get past 360. A percentage display is   
 automatically displayed.
 
+Using as a library project
+--------------------------
+
+Since Android SDK Tools revision 17 (released March 2012), this component can
+be used as a library project. In this case, you do *not* need to copy anything
+into your project's attrs.xml, and you must use the following namespace URI,
+instead of the above:
+
+`xmlns:ProgressWheel="http://schemas.android.com/apk/res-auto"`
+
+Otherwise, usage should be the same.
+
+
 Todd Davies - 2012
