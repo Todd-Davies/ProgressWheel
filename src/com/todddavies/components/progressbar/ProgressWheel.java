@@ -243,13 +243,13 @@ public class ProgressWheel extends View {
 				circleRadius, 
 				circlePaint);
 		//Draw the text (attempts to center it horizontally and vertically)
-		int offsetNum = 0;
+		float textHeight = textPaint.descent() - textPaint.ascent();
+		float verticalTextOffset = (textHeight / 2) - textPaint.descent();
+		
 		for(String s : splitText) {
-			float offset = textPaint.measureText(s) / 2;
-			canvas.drawText(s, this.getWidth() / 2 - offset, 
-				this.getHeight() / 2 + (textSize*(offsetNum)) 
-				- ((splitText.length-1)*(textSize/2)), textPaint);
-			offsetNum++;
+			float horizontalTextOffset = textPaint.measureText(s) / 2;
+			canvas.drawText(s, this.getWidth() / 2 - horizontalTextOffset, 
+				this.getHeight() / 2 + verticalTextOffset, textPaint);
 		}
 	}
 
