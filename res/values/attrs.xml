@@ -13,5 +13,7 @@
         <attr name="radius" format="dimension" />
         <attr name="barWidth" format="dimension" />
         <attr name="barLength" format="dimension" />
+        <attr name="contourColor" format="color"/>
+        <attr name="contourSize" format="dimension"/>
     </declare-styleable>   
 </resources>
