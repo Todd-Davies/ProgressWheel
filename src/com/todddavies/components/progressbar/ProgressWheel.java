@@ -275,6 +275,18 @@ public class ProgressWheel extends View {
     }
 
     /**
+    *   Check if the wheel is currently spinning
+    */
+    
+    public boolean isSpinning() {
+        if(isSpinning){
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    /**
      * Reset the count (in increment mode)
      */
     public void resetCount() {
