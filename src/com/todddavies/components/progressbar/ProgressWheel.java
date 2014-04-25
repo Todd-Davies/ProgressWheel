@@ -251,6 +251,11 @@ public class ProgressWheel extends View {
         canvas.drawArc(circleBounds, 360, 360, false, rimPaint);
         canvas.drawArc(circleOuterContour, 360, 360, false, contourPaint);
         canvas.drawArc(circleInnerContour, 360, 360, false, contourPaint);
+        //Draw the inner circle
+        canvas.drawCircle((circleBounds.width() / 2) + rimWidth + paddingLeft,
+                (circleBounds.height() / 2) + rimWidth + paddingTop,
+                circleRadius,
+                circlePaint);
         //Draw the bar
         if (isSpinning) {
             canvas.drawArc(circleBounds, progress - 90, barLength, false,
@@ -258,11 +263,6 @@ public class ProgressWheel extends View {
         } else {
             canvas.drawArc(circleBounds, -90, progress, false, barPaint);
         }
-        //Draw the inner circle
-        canvas.drawCircle((circleBounds.width() / 2) + rimWidth + paddingLeft,
-                (circleBounds.height() / 2) + rimWidth + paddingTop,
-                circleRadius,
-                circlePaint);
         //Draw the text (attempts to center it horizontally and vertically)
         float textHeight = textPaint.descent() - textPaint.ascent();
         float verticalTextOffset = (textHeight / 2) - textPaint.descent();
