@@ -109,6 +109,53 @@ public class ProgressWheel extends View {
     //Setting up stuff
     //----------------------------------
 
+    /*
+     * When this is called, make the view square.
+     * From: http://www.jayway.com/2012/12/12/creating-custom-android-views-part-4-measuring-and-how-to-force-a-view-to-be-square/
+     * 
+     */
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+    	// The first thing that happen is that we call the superclass 
+    	// implementation of onMeasure. The reason for that is that measuring 
+    	// can be quite a complex process and calling the super method is a 
+    	// convenient way to get most of this complexity handled.
+    	super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
+    	// We can’t use getWidth() or getHight() here. During the measuring 
+    	// pass the view has not gotten its final size yet (this happens first 
+    	// at the start of the layout pass) so we have to use getMeasuredWidth() 
+    	// and getMeasuredHeight().
+        int size = 0;
+        int width = getMeasuredWidth();
+        int height = getMeasuredHeight();
+        int widthWithoutPadding = width - getPaddingLeft() - getPaddingRight();
+        int heigthWithoutPadding = height - getPaddingTop() - getPaddingBottom();
+        
+        // Finally we have some simple logic that calculates the size of the view 
+        // and calls setMeasuredDimension() to set that size.
+        // Before we compare the width and height of the view, we remove the padding, 
+        // and when we set the dimension we add it back again. Now the actual content 
+        // of the view will be square, but, depending on the padding, the total dimensions 
+        // of the view might not be.
+        if (widthWithoutPadding > heigthWithoutPadding) {
+            size = heigthWithoutPadding;
+        } else {
+            size = widthWithoutPadding;
+        }
+        
+        // If you override onMeasure() you have to call setMeasuredDimension(). 
+        // This is how you report back the measured size.  If you don’t call
+        // setMeasuredDimension() the parent will throw an exception and your 
+        // application will crash.        
+        // We are calling the onMeasure() method of the superclass so we don’t 
+        // actually need to call setMeasuredDimension() since that takes care 
+        // of that. However, the purpose with overriding onMeasure() was to 
+        // change the default behaviour and to do that we need to call 
+        // setMeasuredDimension() with our own values.
+        setMeasuredDimension(size + getPaddingLeft() + getPaddingRight(), size + getPaddingTop() + getPaddingBottom());
+    }
+
     /**
      * Use onSizeChanged instead of onAttachedToWindow to get the dimensions of the view,
      * because this method is called after measuring the dimensions of MATCH_PARENT & WRAP_CONTENT.
@@ -174,19 +221,22 @@ public class ProgressWheel extends View {
         paddingLeft = this.getPaddingLeft() + (xOffset / 2);
         paddingRight = this.getPaddingRight() + (xOffset / 2);
 
+        int width = getWidth(); //this.getLayoutParams().width;
+        int height = getHeight(); //this.getLayoutParams().height;
+
         rectBounds = new RectF(paddingLeft,
                 paddingTop,
-                this.getLayoutParams().width - paddingRight,
-                this.getLayoutParams().height - paddingBottom);
+                width - paddingRight,
+                height - paddingBottom);
 
         circleBounds = new RectF(paddingLeft + barWidth,
                 paddingTop + barWidth,
-                this.getLayoutParams().width - paddingRight - barWidth,
-                this.getLayoutParams().height - paddingBottom - barWidth);
+                width - paddingRight - barWidth,
+                height - paddingBottom - barWidth);
         circleInnerContour = new RectF(circleBounds.left + (rimWidth / 2.0f) + (contourSize / 2.0f), circleBounds.top + (rimWidth / 2.0f) + (contourSize / 2.0f), circleBounds.right - (rimWidth / 2.0f) - (contourSize / 2.0f), circleBounds.bottom - (rimWidth / 2.0f) - (contourSize / 2.0f));
         circleOuterContour = new RectF(circleBounds.left - (rimWidth / 2.0f) - (contourSize / 2.0f), circleBounds.top - (rimWidth / 2.0f) - (contourSize / 2.0f), circleBounds.right + (rimWidth / 2.0f) + (contourSize / 2.0f), circleBounds.bottom + (rimWidth / 2.0f) + (contourSize / 2.0f));
 
-        fullRadius = (this.getLayoutParams().width - paddingRight - barWidth) / 2;
+        fullRadius = (width - paddingRight - barWidth) / 2;
         circleRadius = (fullRadius - barWidth) + 1;
     }
 
