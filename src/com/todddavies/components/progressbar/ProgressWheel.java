@@ -297,15 +297,12 @@ public class ProgressWheel extends View {
 
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        //Draw the inner circle
+        canvas.drawArc(circleBounds, 360, 360, false, circlePaint);
         //Draw the rim
         canvas.drawArc(circleBounds, 360, 360, false, rimPaint);
         canvas.drawArc(circleOuterContour, 360, 360, false, contourPaint);
         canvas.drawArc(circleInnerContour, 360, 360, false, contourPaint);
-        //Draw the inner circle
-        canvas.drawCircle((circleBounds.width() / 2) + rimWidth + paddingLeft,
-                (circleBounds.height() / 2) + rimWidth + paddingTop,
-                circleRadius,
-                circlePaint);
         //Draw the bar
         if (isSpinning) {
             canvas.drawArc(circleBounds, progress - 90, barLength, false,
