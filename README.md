@@ -28,9 +28,9 @@ To implement the view in your xml layout do the following:
 	<attr name="radius" format="dimension" />   
 	<attr name="barWidth" format="dimension" />   
 	<attr name="barLength" format="dimension" />
-        <attr name="delayMillis" format="dimension"/>
-        <attr name="contourColor" format="color"/>
-        <attr name="contourSize" format="float"/>
+	<attr name="delayMillis" format="dimension"/>
+	<attr name="contourColor" format="color"/>
+	<attr name="contourSize" format="float"/>
 </declare-styleable> 
 ```
 
