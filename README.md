@@ -69,6 +69,16 @@ automatically displayed.
 Using as a library project
 --------------------------
 
+To use it as a library in Android Studio, please edit build.gradle.
+
+Modify:
+
+    apply plugin: 'android'
+
+Into:
+
+    apply plugin: 'android-library'
+
 Since Android SDK Tools revision 17 (released March 2012), this component can
 be used as a library project. In this case, you do *not* need to copy anything
 into your project's attrs.xml, and you must use the following namespace URI,
