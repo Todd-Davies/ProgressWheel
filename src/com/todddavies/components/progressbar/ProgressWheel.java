@@ -7,8 +7,6 @@ import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.graphics.RectF;
 import android.graphics.Shader;
-import android.os.Handler;
-import android.os.Message;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -67,24 +65,6 @@ public class ProgressWheel extends View {
     private int spinSpeed = 2;
     //The number of milliseconds to wait inbetween each draw
     private int delayMillis = 0;
-    private Handler spinHandler = new Handler() {
-        /**
-         * This is the code that will increment the progress variable
-         * and so spin the wheel
-         */
-        @Override
-        public void handleMessage(Message msg) {
-            invalidate();
-            if (isSpinning) {
-                progress += spinSpeed;
-                if (progress > 360) {
-                    progress = 0;
-                }
-                spinHandler.sendEmptyMessageDelayed(0, delayMillis);
-            }
-            //super.handleMessage(msg);
-        }
-    };
     int progress = 0;
     boolean isSpinning = false;
 
@@ -319,9 +299,20 @@ public class ProgressWheel extends View {
             canvas.drawText(s, this.getWidth() / 2 - horizontalTextOffset,
                     this.getHeight() / 2 + verticalTextOffset, textPaint);
         }
+        if (isSpinning) {
+            scheduleRedraw();
+        }
     }
 
-    /**
+    private void scheduleRedraw() {
+    	progress += spinSpeed;
+        if (progress > 360) {
+            progress = 0;
+        }
+        postInvalidateDelayed(delayMillis);
+    }
+
+	/**
     *   Check if the wheel is currently spinning
     */
     
@@ -348,7 +339,7 @@ public class ProgressWheel extends View {
     public void stopSpinning() {
         isSpinning = false;
         progress = 0;
-        spinHandler.removeMessages(0);
+        postInvalidate();
     }
 
 
@@ -357,7 +348,7 @@ public class ProgressWheel extends View {
      */
     public void spin() {
         isSpinning = true;
-        spinHandler.sendEmptyMessage(0);
+        postInvalidate();
     }
 
     /**
@@ -369,7 +360,7 @@ public class ProgressWheel extends View {
         if (progress > 360)
             progress = 0;
 //        setText(Math.round(((float) progress / 360) * 100) + "%");
-        spinHandler.sendEmptyMessage(0);
+       postInvalidate();
     }
 
 
@@ -379,7 +370,7 @@ public class ProgressWheel extends View {
     public void setProgress(int i) {
         isSpinning = false;
         progress = i;
-        spinHandler.sendEmptyMessage(0);
+        postInvalidate();
     }
 
     //----------------------------------
