@@ -544,4 +544,28 @@ public class ProgressWheel extends View {
     public void setDelayMillis(int delayMillis) {
         this.delayMillis = delayMillis;
     }
+    
+    public int getContourColor() {
+    	return contourColor;
+    }
+    
+    public void setContourColor(int contourColor) {
+    	this.contourColor = contourColor;
+    	
+    	if ( contourPaint != null ) {
+    		this.contourPaint.setColor( this.contourColor );
+    	}
+    }
+    
+    public float getContourSize() {
+    	return this.contourSize;
+    }
+    
+    public void setContourSize(float contourSize) {
+    	this.contourSize = contourSize;
+    	
+    	if ( contourPaint != null ) {
+    		this.contourPaint.setStrokeWidth( this.contourSize );
+    	}
+    }
 }
