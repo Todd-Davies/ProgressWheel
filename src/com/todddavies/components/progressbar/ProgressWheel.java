@@ -410,6 +410,10 @@ public class ProgressWheel extends View {
 
     public void setBarWidth(int barWidth) {
         this.barWidth = barWidth;
+        
+        if ( this.barPaint != null ) {
+        	this.barPaint.setStrokeWidth( this.barWidth );
+        }
     }
 
     public int getTextSize() {
@@ -418,6 +422,10 @@ public class ProgressWheel extends View {
 
     public void setTextSize(int textSize) {
         this.textSize = textSize;
+        
+        if ( this.textPaint != null ) {
+        	this.textPaint.setTextSize( this.textSize );
+        }
     }
 
     public int getPaddingTop() {
@@ -458,6 +466,10 @@ public class ProgressWheel extends View {
 
     public void setBarColor(int barColor) {
         this.barColor = barColor;
+        
+        if ( this.barPaint != null ) {
+        	this.barPaint.setColor( this.barColor );
+        }
     }
 
     public int getCircleColor() {
@@ -466,6 +478,10 @@ public class ProgressWheel extends View {
 
     public void setCircleColor(int circleColor) {
         this.circleColor = circleColor;
+        
+        if ( this.circlePaint != null ) {
+        	this.circlePaint.setColor( this.circleColor);
+        }
     }
 
     public int getRimColor() {
@@ -474,6 +490,10 @@ public class ProgressWheel extends View {
 
     public void setRimColor(int rimColor) {
         this.rimColor = rimColor;
+        
+        if ( this.rimPaint != null ) {
+        	this.rimPaint.setColor( this.rimColor );
+        }
     }
 
 
@@ -491,6 +511,10 @@ public class ProgressWheel extends View {
 
     public void setTextColor(int textColor) {
         this.textColor = textColor;
+        
+        if ( this.textPaint != null ) {
+        	this.textPaint.setColor( this.textColor );
+        }
     }
 
     public int getSpinSpeed() {
@@ -507,6 +531,10 @@ public class ProgressWheel extends View {
 
     public void setRimWidth(int rimWidth) {
         this.rimWidth = rimWidth;
+        
+        if ( this.rimPaint != null ) {
+        	this.rimPaint.setStrokeWidth( this.rimWidth );
+        }
     }
 
     public int getDelayMillis() {
