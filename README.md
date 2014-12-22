@@ -89,4 +89,4 @@ instead of the above:
 Otherwise, usage should be the same.
 
 
-Todd Davies - 2012
+[Todd Davies](http://todddavies.co.uk) - [@Todd__Davies](http://twitter.com/todd__davies) - 2012
