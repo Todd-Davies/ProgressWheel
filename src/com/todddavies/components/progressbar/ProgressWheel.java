@@ -188,7 +188,7 @@ public class ProgressWheel extends View {
      * Set the bounds of the component
      */
     private void setupBounds() {
-        // Width should equal to Height, find the min value to steup the circle
+        // Width should equal to Height, find the min value to setup the circle
         int minValue = Math.min(layout_width, layout_height);
 
         // Calc the Offset if needed
@@ -312,16 +312,11 @@ public class ProgressWheel extends View {
         postInvalidateDelayed(delayMillis);
     }
 
-	/**
+    /**
     *   Check if the wheel is currently spinning
     */
-    
     public boolean isSpinning() {
-        if(isSpinning){
-            return true;
-        } else {
-            return false;
-        }
+    	return isSpinning;
     }
     
     /**
@@ -359,8 +354,8 @@ public class ProgressWheel extends View {
         progress++;
         if (progress > 360)
             progress = 0;
-//        setText(Math.round(((float) progress / 360) * 100) + "%");
-       postInvalidate();
+        //setText(Math.round(((float) progress / 360) * 100) + "%");
+        postInvalidate();
     }
 
 
@@ -495,7 +490,6 @@ public class ProgressWheel extends View {
         	this.rimPaint.setColor( this.rimColor );
         }
     }
-
 
     public Shader getRimShader() {
         return rimPaint.getShader();
