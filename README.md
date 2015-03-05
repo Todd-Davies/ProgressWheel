@@ -66,6 +66,21 @@ Incrementing the progress wheel is slightly more tricky, you call `.incrementPro
 (because a circle has 360 degrees), and will automatically reset once you get past 360. A percentage display is   
 automatically displayed.
 
+Using as a dependency
+--------------------------
+
+Add this to your build.gradle:
+
+```gradle
+	repositories {
+	    maven { url "https://jitpack.io" }
+	}
+	
+	dependencies {
+	    compile 'com.github.Todd-Davies:ProgressWheel:1.0'
+	}
+```
+
 Using as a library project
 --------------------------
 
