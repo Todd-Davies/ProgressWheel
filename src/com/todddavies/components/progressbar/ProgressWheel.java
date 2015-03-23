@@ -17,8 +17,7 @@ import android.view.View;
  *
  * @author Todd Davies
  *         <p/>
- *         Licensed under the Creative Commons Attribution 3.0 license see:
- *         http://creativecommons.org/licenses/by/3.0/
+ *         See MIT-LICENSE.txt for licence details
  */
 public class ProgressWheel extends View {
 
