@@ -117,11 +117,18 @@ public class ProgressWheel extends View {
         // and when we set the dimension we add it back again. Now the actual content 
         // of the view will be square, but, depending on the padding, the total dimensions 
         // of the view might not be.
-        if (widthWithoutPadding > heigthWithoutPadding) {
-            size = heigthWithoutPadding;
+        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+        if (heightMode != MeasureSpec.UNSPECIFIED && widthMode != MeasureSpec.UNSPECIFIED) {
+            if (widthWithoutPadding > heigthWithoutPadding) {
+                size = heigthWithoutPadding;
+            } else {
+                size = widthWithoutPadding;
+            }
         } else {
-            size = widthWithoutPadding;
+            size = Math.max(heigthWithoutPadding, widthWithoutPadding);
         }
+
         
         // If you override onMeasure() you have to call setMeasuredDimension(). 
         // This is how you report back the measured size.  If you don’t call
