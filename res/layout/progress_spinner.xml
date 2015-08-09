@@ -5,12 +5,12 @@
 	android:paddingLeft="30sp" android:paddingRight="30sp">
 	
 	<ImageView android:layout_width="wrap_content"
-		android:layout_height="wrap_content" android:src="@drawable/icon"
+		android:layout_height="wrap_content"
 		android:id="@+id/progressImage" android:tag="1" />
 	
 	<TextView android:id="@+id/tv_progressText" android:layout_height="wrap_content"
 		android:layout_toRightOf="@id/progressImage" android:layout_width="wrap_content"
 		android:layout_alignTop="@id/progressImage" android:layout_alignBottom="@id/progressImage"
-		android:gravity="bottom" android:text="Please Wait..." />
+		android:gravity="bottom" android:text="" />
 	
 </RelativeLayout>

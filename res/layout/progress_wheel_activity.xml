@@ -9,8 +9,17 @@
     <Button android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:id="@+id/btn_spin"
-    android:text="Spin Mode" 
+    android:text="Start spinning"
     android:layout_marginTop="15dp"/>
+
+    <SeekBar
+    android:layout_width="120dp"
+    android:layout_height="wrap_content"
+    android:id="@+id/progressAmount"
+    android:gravity="center"
+    android:layout_alignTop="@+id/btn_spin"
+    android:layout_centerHorizontal="true"
+    android:layout_alignParentLeft="false" />
     
     <Button android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -50,7 +59,7 @@
     	android:layout_height="wrap_content"
     	android:orientation="horizontal">
 		    
-		    <com.todddavies.components.progressbar.ProgressWheel
+		    com.todddavies.components.progressbar.ProgressWheel
 		        android:id="@+id/progressBarThree"
 		        android:layout_width="150dp"
 		        android:layout_height="150dp"
@@ -65,7 +74,7 @@
 		        ProgressWheel:rimWidth="25dp" 
 		        ProgressWheel:spinSpeed="-1dp" />
 		    
-		    <com.todddavies.components.progressbar.ProgressWheel
+		    com.todddavies.components.progressbar.ProgressWheel
 		        android:id="@+id/progressBarFour"
 		        android:layout_width="50dp"
 		        android:layout_height="50dp"

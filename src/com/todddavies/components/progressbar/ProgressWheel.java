@@ -64,7 +64,7 @@ public class ProgressWheel extends View {
     private int spinSpeed = 2;
     //The number of milliseconds to wait inbetween each draw
     private int delayMillis = 0;
-    int progress = 0;
+    private int progress = 0;
     boolean isSpinning = false;
 
     //Other
@@ -356,11 +356,14 @@ public class ProgressWheel extends View {
      * Increment the progress by 1 (of 360)
      */
     public void incrementProgress() {
+        incrementProgress(1);
+    }
+
+    public void incrementProgress(int amount) {
         isSpinning = false;
-        progress++;
+        progress += amount;
         if (progress > 360)
-            progress = 0;
-        //setText(Math.round(((float) progress / 360) * 100) + "%");
+            progress %= 360;
         postInvalidate();
     }
 
@@ -568,4 +571,6 @@ public class ProgressWheel extends View {
     		this.contourPaint.setStrokeWidth( this.contourSize );
     	}
     }
+
+    public int getProgress() { return progress; }
 }
