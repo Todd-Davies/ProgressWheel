@@ -61,7 +61,7 @@ public class ProgressWheel extends View {
     //The amount of pixels to move the bar by on each draw
     private float spinSpeed = 2f;
     //The number of milliseconds to wait in between each draw
-    private int delayMillis = 0;
+    private int delayMillis = 10;
     private float progress = 0;
     boolean isSpinning = false;
 
@@ -239,7 +239,7 @@ public class ProgressWheel extends View {
         barLength = (int) a.getDimension(R.styleable.ProgressWheel_barLength, barLength);
 
         delayMillis = a.getInteger(R.styleable.ProgressWheel_delayMillis, delayMillis);
-        if (delayMillis < 0) { delayMillis = 0; }
+        if (delayMillis < 0) { delayMillis = 10; }
 
         // Only set the text if it is explicitly defined
         if (a.hasValue(R.styleable.ProgressWheel_text)) {
