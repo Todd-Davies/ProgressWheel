@@ -44,14 +44,14 @@
 		        android:id="@+id/progressBarTwo"
 		        android:layout_width="150dp"
 		        android:layout_height="150dp"
-		        ProgressWheel:textColor="#222222"
-		        ProgressWheel:textSize="14sp"
-		        ProgressWheel:rimColor="#44000000"
-		        ProgressWheel:barLength="60dp" 
-		        ProgressWheel:barColor="#339BB9"
-		        ProgressWheel:barWidth="25dp"
-		        ProgressWheel:rimWidth="25dp" 
-		        ProgressWheel:spinSpeed="3dp"/>
+		        ProgressWheel:pwTextColor="#222222"
+		        ProgressWheel:pwTextSize="14sp"
+		        ProgressWheel:pwRimColor="#44000000"
+		        ProgressWheel:pwBarLength="60dp" 
+		        ProgressWheel:pwBarColor="#339BB9"
+		        ProgressWheel:pwBarWidth="25dp"
+		        ProgressWheel:pwRimWidth="25dp" 
+		        ProgressWheel:pwSpinSpeed="3dp"/>
 	    </LinearLayout>
     
     </LinearLayout>
