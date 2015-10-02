@@ -233,12 +233,12 @@ public class ProgressWheel extends View {
      * @param a the attributes to parse
      */
     private void parseAttributes(TypedArray a) {
-        barWidth = (int) a.getDimension(R.styleable.ProgressWheel_barWidth, barWidth);
-        rimWidth = (int) a.getDimension(R.styleable.ProgressWheel_rimWidth, rimWidth);
-        spinSpeed = (int) a.getDimension(R.styleable.ProgressWheel_spinSpeed, spinSpeed);
-        barLength = (int) a.getDimension(R.styleable.ProgressWheel_barLength, barLength);
+        barWidth = (int) a.getDimension(R.styleable.ProgressWheel_barWidth, pwBarWidth);
+        rimWidth = (int) a.getDimension(R.styleable.ProgressWheel_rimWidth, pwRimWidth);
+        spinSpeed = (int) a.getDimension(R.styleable.ProgressWheel_spinSpeed, pwSpinSpeed);
+        barLength = (int) a.getDimension(R.styleable.ProgressWheel_barLength, pwBarLength);
 
-        delayMillis = a.getInteger(R.styleable.ProgressWheel_delayMillis, delayMillis);
+        delayMillis = a.getInteger(R.styleable.ProgressWheel_delayMillis, pwDelayMillis);
         if (delayMillis < 0) { delayMillis = 10; }
 
         // Only set the text if it is explicitly defined
@@ -246,14 +246,14 @@ public class ProgressWheel extends View {
             setText(a.getString(R.styleable.ProgressWheel_text));
         }
 
-        barColor = a.getColor(R.styleable.ProgressWheel_barColor, barColor);
-        textColor = a.getColor(R.styleable.ProgressWheel_textColor, textColor);
-        rimColor = a.getColor(R.styleable.ProgressWheel_rimColor, rimColor);
-        circleColor = a.getColor(R.styleable.ProgressWheel_circleColor, circleColor);
-        contourColor = a.getColor(R.styleable.ProgressWheel_contourColor, contourColor);
+        barColor = a.getColor(R.styleable.ProgressWheel_barColor, pwBarColor);
+        textColor = a.getColor(R.styleable.ProgressWheel_textColor, pwTextColor);
+        rimColor = a.getColor(R.styleable.ProgressWheel_rimColor, pwRimColor);
+        circleColor = a.getColor(R.styleable.ProgressWheel_circleColor, pwCircleColor);
+        contourColor = a.getColor(R.styleable.ProgressWheel_contourColor, pwContourColor);
 
-        textSize = (int) a.getDimension(R.styleable.ProgressWheel_textSize, textSize);
-        contourSize = a.getDimension(R.styleable.ProgressWheel_contourSize, contourSize);
+        textSize = (int) a.getDimension(R.styleable.ProgressWheel_textSize, pwTextSize);
+        contourSize = a.getDimension(R.styleable.ProgressWheel_contourSize, pwContourSize);
 
         a.recycle();
     }
