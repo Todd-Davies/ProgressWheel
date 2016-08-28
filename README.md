@@ -20,20 +20,20 @@ To implement the view in your xml layout do the following:
 1. Add the following to your attrs.xml file (in res/values):
 ``` xml
 <declare-styleable name="ProgressWheel">   
-	<attr name="text" format="string" />   
-	<attr name="textColor" format="color" />   
-	<attr name="textSize" format="dimension" />   
-	<attr name="barColor" format="color" />   
-	<attr name="rimColor" format="color" />   
-	<attr name="rimWidth" format="dimension" />   
-	<attr name="spinSpeed" format="integer" />     
-	<attr name="circleColor" format="color" />     
-	<attr name="radius" format="dimension" />   
-	<attr name="barWidth" format="dimension" />   
-	<attr name="barLength" format="dimension" />
-	<attr name="delayMillis" format="dimension"/>
-	<attr name="contourColor" format="color"/>
-	<attr name="contourSize" format="float"/>
+	<attr name="pwText" format="string" />   
+	<attr name="pwTextColor" format="color" />   
+	<attr name="pwTextSize" format="dimension" />   
+	<attr name="pwBarColor" format="color" />   
+	<attr name="pwRimColor" format="color" />   
+	<attr name="pwRimWidth" format="dimension" />   
+	<attr name="pwSpinSpeed" format="integer" />     
+	<attr name="pwCircleColor" format="color" />     
+	<attr name="pwRadius" format="dimension" />   
+	<attr name="pwBarWidth" format="dimension" />   
+	<attr name="pwBarLength" format="dimension" />
+	<attr name="pwDelayMillis" format="dimension"/>
+	<attr name="pwContourColor" format="color"/>
+	<attr name="pwContourSize" format="float"/>
 </declare-styleable> 
 ```
 
@@ -47,14 +47,14 @@ To implement the view in your xml layout do the following:
     android:layout_width="200dp"    
     android:layout_height="200dp"   
     android:layout_centerInParent="true"   
-    ProgressWheel:text="Authenticating..."    
-    ProgressWheel:textColor="#222"   
-    ProgressWheel:textSize="14sp"   
-    ProgressWheel:rimColor="#330097D6"   
-    ProgressWheel:barLength="60dp"    
-    ProgressWheel:barColor="#0097D6"   
-    ProgressWheel:barWidth="5dp"   
-    ProgressWheel:rimWidth="2dp" /> 
+    ProgressWheel:pwText="Authenticating..."    
+    ProgressWheel:pwTextColor="#222"   
+    ProgressWheel:pwTextSize="14sp"   
+    ProgressWheel:pwRimColor="#330097D6"   
+    ProgressWheel:pwBarLength="60dp"    
+    ProgressWheel:pwBarColor="#0097D6"   
+    ProgressWheel:pwBarWidth="5dp"   
+    ProgressWheel:pwRimWidth="2dp" /> 
 ```
 	
 **Java:**   
@@ -63,7 +63,7 @@ First you need to either get a ProgressWheel from a layout file, or initalise on
 -  `ProgressWheel pw = new ProgressWheel(myContext, myAttributes);`
 -  `ProgressWheel pw = (ProgressWheel) findViewById(R.id.pw_spinner);`
 
-To spin the progress wheel, you just call .`spin()` and to stop it spinning, you call `.stopSpinning()`
+To spin the progress wheel, you just call .`startSpinning()` and to stop it spinning, you call `.stopSpinning()`
 
 Incrementing the progress wheel is slightly more tricky, you call `.incrementProgress()`. However, this is out of 360,  
 (because a circle has 360 degrees), and will automatically reset once you get past 360. A percentage display is   
@@ -80,7 +80,7 @@ Add this to your build.gradle:
 	}
 	
 	dependencies {
-	    compile 'com.github.Todd-Davies:ProgressWheel:1.0'
+	    compile 'com.github.Todd-Davies:ProgressWheel:1.2'
 	}
 ```
 
