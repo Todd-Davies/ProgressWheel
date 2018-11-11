@@ -19,22 +19,22 @@ To implement the view in your xml layout do the following:
 
 1. Add the following to your attrs.xml file (in res/values):
 ``` xml
-<declare-styleable name="ProgressWheel">   
-	<attr name="pwText" format="string" />   
-	<attr name="pwTextColor" format="color" />   
-	<attr name="pwTextSize" format="dimension" />   
-	<attr name="pwBarColor" format="color" />   
-	<attr name="pwRimColor" format="color" />   
-	<attr name="pwRimWidth" format="dimension" />   
-	<attr name="pwSpinSpeed" format="integer" />     
-	<attr name="pwCircleColor" format="color" />     
-	<attr name="pwRadius" format="dimension" />   
-	<attr name="pwBarWidth" format="dimension" />   
-	<attr name="pwBarLength" format="dimension" />
-	<attr name="pwDelayMillis" format="dimension"/>
-	<attr name="pwContourColor" format="color"/>
-	<attr name="pwContourSize" format="float"/>
-</declare-styleable> 
+<declare-styleable name="ProgressWheel">
+        <attr name="pwText" format="string" />
+        <attr name="pwTextColor" format="color" />
+        <attr name="pwTextSize" format="dimension" />
+        <attr name="pwBarColor" format="color" />
+        <attr name="pwRimColor" format="color" />
+        <attr name="pwRimWidth" format="dimension" />
+        <attr name="pwSpinSpeed" format="dimension" />
+        <attr name="pwDelayMillis" format="integer" />
+        <attr name="pwCircleColor" format="color" />
+        <attr name="pwRadius" format="dimension" />
+        <attr name="pwBarWidth" format="dimension" />
+        <attr name="pwBarLength" format="dimension" />
+        <attr name="pwContourColor" format="color"/>
+        <attr name="pwContourSize" format="dimension"/>
+</declare-styleable>
 ```
 
 2. Add the following code to the root view of your layout:
