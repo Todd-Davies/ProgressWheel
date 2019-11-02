@@ -1,17 +1,3 @@
-![Project frozen](https://img.shields.io/badge/status-frozen-blue.png) ![Project unmaintained](https://img.shields.io/badge/project-unmaintained-red.svg)
-
-
-Deprecation warning
-===================
-
-This project is no-longer maintained, and has not been maintained for a few years now. If you're looking for an alternative library, consider the below options:
-
-- https://github.com/pnikosis/materialish-progress
-- https://github.com/ybq/Android-SpinKit
-- https://github.com/zekapp/Android-ProgressViews
-
-If, on the other hand, you'd like to take over maintinance of the project or modernise it, feel free to do so; just send me pull requests or an email (at todd434@gmail.com).
-
 Progress Wheel
 =============
 
